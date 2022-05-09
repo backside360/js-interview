@@ -2,6 +2,7 @@
 Open library with most popular and common questions/tasks
 
 # Map() polyfill
+```javascript
 Array.prototype.myMap = function(callbackFn) {
   var arr = [];              
   for (var i = 0; i < this.length; i++) { 
@@ -11,8 +12,10 @@ Array.prototype.myMap = function(callbackFn) {
   }
   return arr;
 }
+```
 
 # Reduce() polyfill
+```javascript
 Array.prototype.myReduce= function(callbackFn, initialValue) {
   var accumulator = initialValue;
 for (var i = 0; i < this.length; i++) {
@@ -24,8 +27,10 @@ for (var i = 0; i < this.length; i++) {
   }
   return accumulator;
 }
+```
 
 # Filter() polyfill
+```javascript
 Array.prototype.myFilter = function(callbackFn) {
   var arr = [];     
   for (var i = 0; i < this.length; i++) {
@@ -35,3 +40,4 @@ Array.prototype.myFilter = function(callbackFn) {
   }
   return arr;
 }
+```
