@@ -132,3 +132,59 @@ function removeDupes(str) {
   }
   
   ```
+  
+# Maximum subarray
+```javascript
+var maxSubArray = function(nums) {
+    let maxSum = -Infinity
+    let previous = 0
+    for(let i = 0; i < nums.length; i++){ 
+        
+        previous = Math.max(nums[i], previous + nums[i])
+        
+        maxSum = Math.max(previous, maxSum)
+        
+        
+    }
+    return maxSum
+};
+ ```
+ 
+# Move zeroes
+```javascript
+var moveZeroes = function(nums) {
+    let nonZeroIndex = 0;
+
+    for(let i=0; i < nums.length; i++){
+        if(nums[i] != 0) {
+            nums[nonZeroIndex] = nums[i];
+            nonZeroIndex ++;
+        }
+    }
+
+    for(let i = nonZeroIndex; i < nums.length; i++) {
+        nums[i] = 0;
+    }
+};
+ ```
+ 
+ # Merge two sorted lists
+ ```javascript
+ var mergeTwoLists = function(l1, l2) {
+    var mergedHead = { val : -1, next : null },
+        crt = mergedHead;
+    while(l1 && l2) {
+        if(l1.val > l2.val) {
+            crt.next = l2;
+            l2 = l2.next;
+        } else {
+            crt.next = l1;
+            l1 = l1.next;
+        }
+        crt = crt.next;
+    }
+    crt.next = l1 || l2;
+    
+    return mergedHead.next;
+};
+ ```
