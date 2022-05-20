@@ -61,3 +61,74 @@ function flatten(array) {
     return res
   }
 ```
+
+# Quick sort
+```javascript
+function quickSort(arr) {
+    if (arr.length < 2) return arr;
+    let pivot = arr[0];
+    const left = [];
+    const right = [];
+      
+    for (let i = 1; i < arr.length; i++) {
+      if (pivot > arr[i]) {
+        left.push(arr[i]);
+      } else {
+        right.push(arr[i]);
+      }
+    }
+    return quickSort(left).concat(pivot, quickSort(right));
+  }
+```
+
+# Brackets
+```javascript
+function isBalanced(string) {
+    const start = '({['
+    const end = ']})'
+  
+    const map = {
+      '}': '{',
+      ')': '(',
+      ']': '['
+    }
+  
+    const queue = []
+  
+    for (let i = 0; i < string.length; i++) {
+      const char = string[i]
+  
+      if (start.includes(char)) {
+        queue.push(char)
+      } else if (end.includes(char)) {
+        const last = queue.pop()
+  
+        if (map[char] !== last) {
+          return false
+        }
+      }
+    }
+  
+    return !queue.length
+  }
+```
+
+# Remove duplicates
+```javascript
+function removeDupes(str) {
+    // const chars = {}
+    // const res = []
+  
+    // for (let i = 0; i < str.length; i++) {
+      // if (!chars[str[i]]) {
+        // chars[str[i]] = true
+        // res.push(str[i])
+      // }
+    // }
+  
+    // return res.join('')
+  
+    return Array.from(new Set(str)).join('')
+  }
+  
+  ```
