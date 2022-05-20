@@ -188,3 +188,22 @@ var moveZeroes = function(nums) {
     return mergedHead.next;
 };
  ```
+
+# String to nested object
+```javascript
+const queryToObject = (query) => {
+
+    return query.split('&').reduce((result, entry) => {
+        const [k, v] = entry.split('=')
+        const keys = k.split('.')
+        let key = 'result', value = `'${v}'`
+        for (i = 0; i < keys.length; i++) {
+            key += `['${keys[i]}']`
+            if (i == keys.length - 1) eval(key + '=' + value)
+            else if (!eval(key)) eval(key + '= {}')
+        }
+        return result
+    }, {})
+
+}
+```
