@@ -207,3 +207,32 @@ const queryToObject = (query) => {
 
 }
 ```
+
+# ATM
+```javascript
+const nominals = [10, 50, 100, 500, 1000, 5000];
+
+function atm(amount, nominals)
+    {
+        let notes = nominals;
+        notes.sort((a,b) =>  b - a);
+        let noteCounter = Array(6).fill(0);
+        let result = [];
+        
+        for (let i = 0; i < 6; i++) {
+            if (amount >= notes[i]) {
+                noteCounter[i] = Math.floor(amount / notes[i]);
+                amount = amount - noteCounter[i] * notes[i];
+            }
+        }
+        
+        
+        for (let i = 0; i < 6; i++) {
+            if (noteCounter[i] != 0) {
+              result.push(notes[i] + " : " + noteCounter[i])
+            }
+        }
+      return result
+    }
+
+console.log(atm(5460, nominals));
